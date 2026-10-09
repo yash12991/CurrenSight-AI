@@ -1,19 +1,20 @@
 /* --- RupeeScan Accessibility Design System --- */
 
 :root {
-    /* Color Tokens - Modern Dark Glassmorphism */
-    --bg-primary: #08090d;
-    --bg-card: rgba(18, 20, 32, 0.7);
-    --border-card: rgba(255, 255, 255, 0.06);
-    --text-primary: #ffffff;
-    --text-secondary: #9aa0c2;
-    --accent-cyan: #00f2fe;
-    --accent-purple: #89f7fe;
-    --accent-green: #00e676;
-    --accent-red: #ff3d00;
+    /* CurrenSight Cyber-Emerald & Deep Obsidian Velvet Tokens */
+    --bg-primary: #07090e;
+    --bg-card: rgba(12, 16, 25, 0.78);
+    --border-card: rgba(0, 245, 160, 0.14);
+    --text-primary: #f0fdf4;
+    --text-secondary: #94a3b8;
+    --accent-cyan: #00f5a0;
+    --accent-purple: #00d9f5;
+    --accent-iris: #9d4edd;
+    --accent-green: #00f5a0;
+    --accent-red: #ff3366;
     
-    --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-    --backdrop-blur: blur(12px);
+    --shadow-premium: 0 12px 40px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+    --backdrop-blur: blur(16px);
     --transition-speed: 0.3s;
 }
 
@@ -84,12 +85,12 @@ body.high-contrast .bg-gradient-orb {
 .orb-1 {
     top: -150px;
     right: -100px;
-    background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 245, 160, 0.22) 0%, transparent 70%);
 }
 .orb-2 {
     bottom: -150px;
     left: -100px;
-    background: radial-gradient(circle, #7f00ff 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(157, 78, 221, 0.22) 0%, transparent 70%);
 }
 
 /* App Layout */
@@ -114,6 +115,79 @@ body.high-contrast .bg-gradient-orb {
     padding-bottom: 16px;
 }
 
+
+/* Background Grid Overlay */
+.bg-grid-overlay {
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(0, 245, 160, 0.07) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: -1;
+}
+body.high-contrast .bg-grid-overlay {
+    display: none;
+}
+
+/* Brand Logo Styling */
+.brand-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(0, 245, 160, 0.08);
+    border: 1px solid rgba(0, 245, 160, 0.25);
+    box-shadow: 0 0 20px rgba(0, 245, 160, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.brand-logo-container:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 0 25px rgba(0, 245, 160, 0.35);
+}
+.brand-logo-svg {
+    width: 36px;
+    height: 36px;
+    filter: drop-shadow(0 0 6px rgba(0, 245, 160, 0.4));
+}
+body.high-contrast .brand-logo-container {
+    background: #000;
+    border: 2px solid #ffff00;
+    box-shadow: none;
+}
+body.high-contrast .brand-logo-container svg path,
+body.high-contrast .brand-logo-container svg rect,
+body.high-contrast .brand-logo-container svg circle {
+    stroke: #ffff00 !important;
+    fill: none !important;
+}
+
+.brand-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.ai-badge {
+    font-family: "JetBrains Mono", monospace, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #00f5a0 0%, #00d9f5 100%);
+    color: #040810;
+    text-transform: uppercase;
+    box-shadow: 0 0 12px rgba(0, 245, 160, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+body.high-contrast .ai-badge {
+    background: #ffff00;
+    color: #000;
+    box-shadow: none;
+    border: none;
+}
+
 .logo-area {
     display: flex;
     align-items: center;
@@ -134,9 +208,12 @@ body.high-contrast .currency-icon {
 }
 
 #app-title {
-    font-size: 1.6rem;
+    font-size: 1.65rem;
     font-weight: 800;
     letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 40%, #00f5a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
@@ -281,9 +358,9 @@ body.high-contrast .scanning-reticle {
     left: 15%;
     width: 70%;
     height: 4px;
-    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    background: linear-gradient(90deg, transparent, #00f5a0 20%, #00d9f5 50%, #00f5a0 80%, transparent);
     animation: scanSweep 3s infinite ease-in-out;
-    box-shadow: 0 0 12px var(--accent-cyan);
+    box-shadow: 0 0 16px #00f5a0, 0 0 32px rgba(0, 217, 245, 0.4);
 }
 body.high-contrast .scanning-beam {
     background: #ffff00;

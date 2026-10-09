@@ -7,12 +7,12 @@
     <!-- SEO Meta Tags -->
     <title>CurrenSight AI - Assistive Indian Currency Vision System</title>
     <meta name="description" content="CurrenSight AI is an accessible, real-time Indian currency banknote vision system designed specifically for blind and visually impaired individuals using web cameras and voice synthesis.">
-    <meta name="keywords" content="indian currency detector, currency scanner, blind accessibility, visually impaired app, computer vision rupee detection">
+    <meta name="keywords" content="currensight, indian currency detector, currency scanner, blind accessibility, visually impaired app, computer vision rupee detection">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="index.css">
@@ -24,17 +24,47 @@
     <!-- Main Container -->
     <main id="main-container" class="app-container" role="main" aria-label="Currency Detector Interface">
         
-        <!-- Background Decorative Gradients -->
-        <div class="bg-gradient-orb orb-1"></div>
-        <div class="bg-gradient-orb orb-2"></div>
+        <!-- Background Decorative Cyber Gradients & Grid -->
+        <div class="bg-grid-overlay" aria-hidden="true"></div>
+        <div class="bg-gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="bg-gradient-orb orb-2" aria-hidden="true"></div>
         
         <!-- Header -->
         <header class="app-header">
             <div class="logo-area">
-                <span class="currency-icon" aria-hidden="true">₹</span>
+                <div class="brand-logo-container" aria-hidden="true">
+                    <svg class="brand-logo-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logo-neon" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#00f5a0" />
+                                <stop offset="50%" stop-color="#00d9f5" />
+                                <stop offset="100%" stop-color="#9d4edd" />
+                            </linearGradient>
+                            <radialGradient id="logo-glow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#00f5a0" stop-opacity="0.4" />
+                                <stop offset="100%" stop-color="#00f5a0" stop-opacity="0" />
+                            </radialGradient>
+                        </defs>
+                        <!-- Ambient Optical Glow Circle -->
+                        <circle cx="22" cy="22" r="20" fill="url(#logo-glow)" />
+                        <!-- Outer Precision Shield Ring -->
+                        <rect x="2" y="2" width="40" height="40" rx="10" stroke="url(#logo-neon)" stroke-width="2" stroke-linecap="round" stroke-dasharray="32 8" />
+                        <!-- Vision Aperture Contour -->
+                        <path d="M7 22C11 15 16.5 11 22 11C27.5 11 33 15 37 22C33 29 27.5 33 22 33C16.5 33 11 29 7 22Z" stroke="url(#logo-neon)" stroke-width="2" stroke-linejoin="round" />
+                        <!-- Optical Iris Circle -->
+                        <circle cx="22" cy="22" r="6.5" stroke="#00f5a0" stroke-width="1.8" fill="rgba(0, 217, 245, 0.15)" />
+                        <!-- Indian Rupee Currency Core Symbol -->
+                        <path d="M19.5 17.5H24.5M19.5 20H23.5M19.5 17.5V26.5M21.5 22C23 22 24.2 21.2 24.2 19.8C24.2 18.5 23 17.5 21.5 17.5M21.5 22L24.5 26.5" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                        <!-- Pulsing Center Beam Core -->
+                        <circle cx="22" cy="22" r="1.3" fill="#00f5a0" />
+                    </svg>
+                </div>
                 <div>
-                    <h1 id="app-title">CurrenSight AI</h1>
-                    <p class="subtitle">Assistive Currency Vision System</p>
+                    <div class="brand-title-wrap">
+                        <h1 id="app-title">CurrenSight</h1>
+                        <span class="ai-badge">AI</span>
+                    </div>
+                    <p class="subtitle">Assistive Currency Perception System</p>
                 </div>
             </div>
             
@@ -84,14 +114,14 @@
                     <!-- Telemetry Live Stream Badge -->
                     <div class="hud-telemetry" aria-hidden="true">
                         <span class="hud-pulse-dot"></span>
-                        <span class="hud-telemetry-text">LIVE STREAM · AI READY</span>
+                        <span class="hud-telemetry-text">LIVE VISION · AI READY</span>
                     </div>
 
                     <!-- Video Element -->
                     <video id="webcam" autoplay playsinline muted aria-hidden="true"></video>
                     
                     <!-- Image Preview Element for Uploads -->
-                    <img id="image-preview" class="hidden" alt="Uploaded Banknote Preview" style="width: 100%; height: 100%; object-fit: contain; background: #08090d;" />
+                    <img id="image-preview" class="hidden" alt="Uploaded Banknote Preview" style="width: 100%; height: 100%; object-fit: contain; background: #07090e;" />
                     
                     <!-- Reset/Back to Webcam Button -->
                     <button id="reset-camera-btn" class="btn-reset-camera hidden" aria-label="Return to live camera recognition">
@@ -129,8 +159,8 @@
             <div class="card status-card">
                 <div class="status-header">
                     <div class="status-title-wrap">
-                        <h2>Detector Status</h2>
-                        <span class="model-tech-pill">ResNet-18 · ~127 FPS</span>
+                        <h2>Perception Status</h2>
+                        <span class="model-tech-pill">ResNet-18 · ~120 FPS</span>
                     </div>
                     <span id="connection-indicator" class="badge badge-error" role="status">Disconnected</span>
                 </div>
@@ -152,7 +182,7 @@
                 <div class="detection-display" id="detection-display" aria-live="polite">
                     <div class="no-detection-msg">
                         <span class="pulse-dot"></span>
-                        <p id="status-text">Starting system...</p>
+                        <p id="status-text">Starting vision engine...</p>
                     </div>
                 </div>
 
@@ -193,7 +223,12 @@
             <div class="modal-card">
                 <div class="modal-header">
                     <div class="modal-title-wrap">
-                        <span class="currency-icon" aria-hidden="true" style="font-size: 1.5rem; width: 36px; height: 36px;">₹</span>
+                        <div class="brand-logo-container" style="width: 38px; height: 38px; padding: 4px;" aria-hidden="true">
+                            <svg class="brand-logo-svg" viewBox="0 0 44 44" fill="none">
+                                <circle cx="22" cy="22" r="18" stroke="#00f5a0" stroke-width="2" />
+                                <path d="M19.5 17.5H24.5M19.5 20H23.5M19.5 17.5V26.5M21.5 22C23 22 24.2 21.2 24.2 19.8C24.2 18.5 23 17.5 21.5 17.5M21.5 22L24.5 26.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
                         <div>
                             <h2 id="about-modal-title" style="font-size: 1.35rem; font-weight: 800; margin: 0;">About CurrenSight AI</h2>
                             <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0;">Empowering Financial Independence Through Computer Vision</p>

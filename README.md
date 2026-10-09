@@ -34,7 +34,7 @@ CurrenSight AI is our **Deep Learning & Computer Vision** project designed to de
 - **Chetan** ([@Chetan0233](https://github.com/Chetan0233))
 - **Rounak Ukey** ([@Rounak-U](https://github.com/Rounak-U))
 
-**Mission:** Building open, ethical, and high-impact AI accessibility solutions for real-world independence. Contributions, issues, and feature requests are welcome on the [issues page](https://github.com/yash12991/RupeeScan-AI/issues).
+**Mission:** Building open, ethical, and high-impact AI accessibility solutions for real-world independence. Contributions, issues, and feature requests are welcome on the [issues page](https://github.com/yash12991/CurrenSight-AI/issues).
 
 ---
 
@@ -263,8 +263,8 @@ flowchart TD
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yash12991/RupeeScan-AI.git
-cd RupeeScan-AI
+git clone https://github.com/yash12991/CurrenSight-AI.git
+cd CurrenSight-AI
 
 # 2. Create and activate a Python virtual environment
 python3 -m venv .venv
@@ -285,8 +285,8 @@ python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
 
 ```powershell
 # 1. Clone the repository
-git clone https://github.com/yash12991/RupeeScan-AI.git
-cd RupeeScan-AI
+git clone https://github.com/yash12991/CurrenSight-AI.git
+cd CurrenSight-AI
 
 # 2. Create and activate virtual environment
 python -m venv .venv
