@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="CurrenSight AI Logo" width="160" style="border-radius: 24px; box-shadow: 0 8px 32px rgba(0,245,160,0.3);" />
+</p>
+
 # CurrenSight AI 👁️💵
 
 [![Python](https://img.shields.io/badge/Python-3.11%20|%203.12%20|%203.13%20|%203.14-blue.svg)](https://www.python.org/)
