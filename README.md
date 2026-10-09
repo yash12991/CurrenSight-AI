@@ -34,9 +34,9 @@ In India, while modern banknotes feature tactile bleeding lines and variable siz
 ### 👥 Meet the Team & Project Contributors
 CurrenSight AI is our **Deep Learning & Computer Vision** project designed to deliver tangible accessibility impact:
 - **Yash Sonawane** ([@yash12991](https://github.com/yash12991))
+- **Rounak Ukey** ([@Rounak-U](https://github.com/Rounak-U))
 - **Bhavesh K. Sinha** ([@BhaveshKSinha](https://github.com/BhaveshKSinha))
 - **Chetan** ([@Chetan0233](https://github.com/Chetan0233))
-- **Rounak Ukey** ([@Rounak-U](https://github.com/Rounak-U))
 
 **Mission:** Building open, ethical, and high-impact AI accessibility solutions for real-world independence. Contributions, issues, and feature requests are welcome on the [issues page](https://github.com/yash12991/CurrenSight-AI/issues).
 
@@ -408,4 +408,4 @@ python training/train_pytorch.py --epochs 20 --batch-size 32 --patience 4
 
 ## 📄 License & Attribution
 
-This project is open-source under the MIT License. Developed as a **Deep Learning & Computer Vision** project by **[Yash Sonawane](https://github.com/yash12991)**, **[Bhavesh K. Sinha](https://github.com/BhaveshKSinha)**, **[Chetan](https://github.com/Chetan0233)**, and **[Rounak Ukey](https://github.com/Rounak-U)**. If you use CurrenSight AI in your research, coursework, or project, please star the repository! ⭐
+This project is open-source under the MIT License. Developed as a **Deep Learning & Computer Vision** project by **[Yash Sonawane](https://github.com/yash12991)**, **[Rounak Ukey](https://github.com/Rounak-U)**, **[Bhavesh K. Sinha](https://github.com/BhaveshKSinha)**, and **[Chetan](https://github.com/Chetan0233)**. If you use CurrenSight AI in your research, coursework, or project, please star the repository! ⭐
