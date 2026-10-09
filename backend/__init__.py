@@ -1,1 +1,1 @@
-"""RupeeScan backend package."""
+"""CurrenSight AI backend package."""

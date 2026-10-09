@@ -23,20 +23,24 @@ logger = logging.getLogger("CurrencyDetectorBackend")
 
 APP_VERSION = "0.3.0"
 app = FastAPI(
-    title="Indian Currency Detector API",
+    title="CurrenSight AI - Indian Banknote Perception API",
     version=APP_VERSION,
-    description="Accessibility-oriented Indian banknote denomination assistance.",
+    description="Accessibility-oriented Indian banknote denomination vision assistance with Deep Learning.",
 )
 
 # Resolve project resources independently of the process working directory.
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-MODEL_DIR = Path(os.getenv("RUPEESCAN_MODEL_DIR", PROJECT_ROOT / "backend" / "models")).resolve()
-FRONTEND_DIR = Path(os.getenv("RUPEESCAN_FRONTEND_DIR", PROJECT_ROOT / "frontend")).resolve()
-MAX_IMAGE_BYTES = int(os.getenv("RUPEESCAN_MAX_IMAGE_BYTES", str(10 * 1024 * 1024)))
-MAX_IMAGE_PIXELS = int(os.getenv("RUPEESCAN_MAX_IMAGE_PIXELS", str(16_000_000)))
-COLOR_THRESHOLD = float(os.getenv("RUPEESCAN_COLOR_THRESHOLD", "0.535"))
-AUTHENTICITY_EXPERIMENTAL_ENABLED = os.getenv(
-    "RUPEESCAN_ENABLE_EXPERIMENTAL_AUTHENTICITY", "false"
+MODEL_DIR = Path(
+    os.getenv("CURRENSIGHT_MODEL_DIR", os.getenv("DRISHTISCAN_MODEL_DIR", os.getenv("RUPEESCAN_MODEL_DIR", PROJECT_ROOT / "backend" / "models")))
+).resolve()
+FRONTEND_DIR = Path(
+    os.getenv("CURRENSIGHT_FRONTEND_DIR", os.getenv("DRISHTISCAN_FRONTEND_DIR", os.getenv("RUPEESCAN_FRONTEND_DIR", PROJECT_ROOT / "frontend")))
+).resolve()
+MAX_IMAGE_BYTES = int(os.getenv("CURRENSIGHT_MAX_IMAGE_BYTES", os.getenv("DRISHTISCAN_MAX_IMAGE_BYTES", os.getenv("RUPEESCAN_MAX_IMAGE_BYTES", str(10 * 1024 * 1024)))))
+MAX_IMAGE_PIXELS = int(os.getenv("CURRENSIGHT_MAX_IMAGE_PIXELS", os.getenv("DRISHTISCAN_MAX_IMAGE_PIXELS", os.getenv("RUPEESCAN_MAX_IMAGE_PIXELS", str(16_000_000)))))
+COLOR_THRESHOLD = float(os.getenv("CURRENSIGHT_COLOR_THRESHOLD", os.getenv("DRISHTISCAN_COLOR_THRESHOLD", os.getenv("RUPEESCAN_COLOR_THRESHOLD", "0.535"))))
+AUTHENTICITY_EXPERIMENTAL_ENABLED = (
+    os.getenv("CURRENSIGHT_ENABLE_EXPERIMENTAL_AUTHENTICITY", os.getenv("DRISHTISCAN_ENABLE_EXPERIMENTAL_AUTHENTICITY", os.getenv("RUPEESCAN_ENABLE_EXPERIMENTAL_AUTHENTICITY", "false")))
 ).lower() in {"1", "true", "yes", "on"}
 
 # Model Global Variable
@@ -134,7 +138,7 @@ def load_authenticity_model():
         MODEL_LOAD_ERRORS.pop("authenticity", None)
         logger.info(
             "Experimental authenticity model is disabled. Set "
-            "RUPEESCAN_ENABLE_EXPERIMENTAL_AUTHENTICITY=true to opt in."
+            "CURRENSIGHT_ENABLE_EXPERIMENTAL_AUTHENTICITY=true to opt in."
         )
         return False
     if not os.path.exists(AUTHENTICITY_MODEL_PATH):

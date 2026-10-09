@@ -1,4 +1,4 @@
-"""Run lightweight RupeeScan environment and project-integrity diagnostics."""
+"""Run lightweight CurrenSight AI environment and project-integrity diagnostics."""
 
 import argparse
 import importlib.util
@@ -98,7 +98,7 @@ def main():
         print(json.dumps(report, indent=2))
     else:
         state = "READY" if report["ready"] else "NOT READY"
-        print(f"RupeeScan doctor: {state}")
+        print(f"CurrenSight AI doctor: {state}")
         print(f"Python {report['python']['version']} (supported: {report['python']['supported']})")
         for name, available in report["dependencies"].items():
             print(f"  {'OK' if available else 'MISSING':7} {name}")

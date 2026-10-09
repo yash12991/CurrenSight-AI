@@ -3,6 +3,8 @@ FROM python:3.12-slim
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
+    CURRENSIGHT_ENABLE_EXPERIMENTAL_AUTHENTICITY=false \
+    DRISHTISCAN_ENABLE_EXPERIMENTAL_AUTHENTICITY=false \
     RUPEESCAN_ENABLE_EXPERIMENTAL_AUTHENTICITY=false
 
 WORKDIR /app
@@ -14,9 +16,9 @@ RUN python -m pip install --upgrade pip \
 COPY backend /app/backend
 COPY frontend /app/frontend
 
-RUN useradd --create-home --uid 10001 rupeescan \
-    && chown -R rupeescan:rupeescan /app
-USER rupeescan
+RUN useradd --create-home --uid 10001 currensight \
+    && chown -R currensight:currensight /app
+USER currensight
 
 EXPOSE 8000
 

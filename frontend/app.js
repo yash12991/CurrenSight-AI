@@ -1,4 +1,4 @@
-/* --- RupeeScan Application Controller --- */
+/* --- CurrenSight AI Application Controller --- */
 
 document.addEventListener("DOMContentLoaded", () => {
     // DOM Elements
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let tapTimeout = null;
 
     // Initialize TTS Greeting
-    speakVoice("RupeeScan is ready. Hold currency in front of camera.");
+    speakVoice("CurrenSight is ready. Hold currency in front of camera.");
 
     // --- ACCESSIBILITY TTS FUNCTIONS ---
 
@@ -657,7 +657,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!aboutModal) return;
         aboutModal.classList.remove("hidden");
         if (closeAboutBtn) closeAboutBtn.focus();
-        speakVoice("About RupeeScan and Team dialog opened.");
+        speakVoice("About CurrenSight AI and Team dialog opened.");
     }
 
     function closeAboutDialog() {

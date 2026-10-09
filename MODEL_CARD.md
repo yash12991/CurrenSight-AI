@@ -1,8 +1,8 @@
-# RupeeScan model card
+# CurrenSight AI Model Card
 
 ## Intended use
 
-RupeeScan assists users in identifying the denomination of visible Indian banknotes. It is an accessibility aid, not a financial verification system.
+CurrenSight AI assists users in identifying the denomination of visible Indian banknotes. It is an accessibility aid, not a financial verification system.
 
 ## Current inference stack
 

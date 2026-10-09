@@ -1,4 +1,4 @@
-"""Benchmark RupeeScan denomination inference on one local image."""
+"""Benchmark CurrenSight AI denomination inference on one local image."""
 
 import argparse
 import json

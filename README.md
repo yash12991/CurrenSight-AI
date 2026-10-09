@@ -1,4 +1,4 @@
-# RupeeScan 🔍🇮🇳
+# CurrenSight AI 👁️💵
 
 [![Python](https://img.shields.io/badge/Python-3.11%20|%203.12%20|%203.13%20|%203.14-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%200.143-009688.svg)](https://fastapi.tiangolo.com/)
@@ -9,16 +9,16 @@
 
 > **Empowering Financial Independence for the Visually Impaired through Real-Time Computer Vision.**
 
-RupeeScan is an accessibility-first Indian banknote denomination assistant. Powered by a hybrid PyTorch ResNet-18 and OpenCV vision pipeline, it provides sub-10ms real-time banknote identification via live webcam streaming, image uploads, natural voice announcements, and WCAG-compliant high-contrast controls.
+CurrenSight AI is an accessibility-first Indian banknote denomination perception assistant. Powered by a hybrid PyTorch ResNet-18 and OpenCV vision pipeline, it provides sub-10ms real-time banknote identification via live webcam streaming, image uploads, natural voice announcements, and WCAG-compliant high-contrast controls.
 
 ---
 
 ## 🌟 About Us & Project Mission
 
-### Why RupeeScan?
+### Why CurrenSight AI?
 In India, while modern banknotes feature tactile bleeding lines and variable sizes, individuals with visual impairments, partial blindness, or age-related vision loss frequently encounter challenges in everyday transactions. Variations in lighting, soiled or folded notes, and rapid merchant exchanges create barriers to financial autonomy.
 
-**RupeeScan was built to solve this challenge.** By bridging advanced deep learning with a universally accessible browser frontend, RupeeScan turns any smartphone, laptop, or webcam-equipped device into an instant, spoken banknote recognizer that works locally with zero cloud latency.
+**CurrenSight AI was built to solve this challenge.** By bridging advanced deep learning with a universally accessible browser frontend, CurrenSight AI turns any smartphone, laptop, or webcam-equipped device into an instant, spoken banknote recognizer that works locally with zero cloud latency.
 
 ### Core Pillars
 - **👁️ Accessibility-First Design:** Engineered from the ground up for screen-reader users, keyboard-only navigators, and low-vision individuals. Features an instant **High-Contrast Theme (Black & Yellow)**, custom focus states, and tactile keyboard shortcuts.
@@ -28,10 +28,11 @@ In India, while modern banknotes feature tactile bleeding lines and variable siz
 - **🔒 Privacy by Design:** All frame processing occurs on the local FastAPI backend server; no user camera feeds or personal data are stored or shared.
 
 ### 👥 Meet the Team & Project Contributors
-RupeeScan is our **Deep Learning & Computer Vision** project designed to deliver tangible accessibility impact:
+CurrenSight AI is our **Deep Learning & Computer Vision** project designed to deliver tangible accessibility impact:
 - **Yash Sonawane** ([@yash12991](https://github.com/yash12991))
 - **Bhavesh K. Sinha** ([@BhaveshKSinha](https://github.com/BhaveshKSinha))
 - **Chetan** ([@Chetan0233](https://github.com/Chetan0233))
+- **Rounak Ukey** ([@Rounak-U](https://github.com/Rounak-U))
 
 **Mission:** Building open, ethical, and high-impact AI accessibility solutions for real-world independence. Contributions, issues, and feature requests are welcome on the [issues page](https://github.com/yash12991/RupeeScan-AI/issues).
 
@@ -53,7 +54,7 @@ RupeeScan is our **Deep Learning & Computer Vision** project designed to deliver
 
 ## 🏗️ System Architecture
 
-![RupeeScan System Architecture](assets/architecture_diagram.png)
+![CurrenSight AI System Architecture](assets/architecture_diagram.png)
 
 ```mermaid
 graph LR
@@ -115,12 +116,12 @@ graph LR
 ## ⚙️ How It Works (End-to-End Pipeline)
 
 ### 1. Frame Capture & Streaming
-The user opens RupeeScan in any browser. `navigator.mediaDevices.getUserMedia` activates the device camera (or user selects an image file). The browser client draws video frames onto an internal canvas, converts them into base64 JPEG buffers, and streams them over a bidirectional WebSocket (`/ws/detect`). A ping-pong control flag ensures the client only dispatches new frames once the previous response has arrived, preventing buffer bloat.
+The user opens CurrenSight AI in any browser. `navigator.mediaDevices.getUserMedia` activates the device camera (or user selects an image file). The browser client draws video frames onto an internal canvas, converts them into base64 JPEG buffers, and streams them over a bidirectional WebSocket (`/ws/detect`). A ping-pong control flag ensures the client only dispatches new frames once the previous response has arrived, preventing buffer bloat.
 
 ### 2. Validation & Preprocessing
 FastAPI receives the frame and passes the raw buffer through `decode_image_bytes()`:
-- Verifies the payload does not exceed **10 MB** (`RUPEESCAN_MAX_IMAGE_BYTES`).
-- Verifies decoded dimensions do not exceed **16 Megapixels** (`RUPEESCAN_MAX_IMAGE_PIXELS`).
+- Verifies the payload does not exceed **10 MB** (`CURRENSIGHT_MAX_IMAGE_BYTES`).
+- Verifies decoded dimensions do not exceed **16 Megapixels** (`CURRENSIGHT_MAX_IMAGE_PIXELS`).
 - Decodes the verified buffer into a standard OpenCV BGR NumPy array.
 
 ### 3. Stage 1: PyTorch ResNet-18 Denomination Classification
@@ -149,7 +150,7 @@ The JSON response is transmitted back to the browser client:
 
 After a video frame or uploaded photo arrives at the backend (`POST /api/detect` or `WS /ws/detect`), it passes through a multi-stage dual-track processing pipeline designed for speed, accuracy, and anti-spoofing resilience:
 
-![RupeeScan In-Depth Computer Vision Pipeline](assets/cv_pipeline_in_depth.png)
+![CurrenSight AI In-Depth Computer Vision Pipeline](assets/cv_pipeline_in_depth.png)
 
 ```mermaid
 flowchart TD
@@ -308,17 +309,17 @@ Open your browser at **`http://127.0.0.1:8000`**. Camera APIs function automatic
 
 ## ⚙️ Configuration
 
-RupeeScan can be configured via environment variables:
+CurrenSight AI can be configured via environment variables:
 
 | Variable | Purpose | Default |
 |---|---|---|
-| `RUPEESCAN_MODEL_DIR` | Directory containing model weights | `backend/models` |
-| `RUPEESCAN_FRONTEND_DIR` | Static frontend directory | `frontend` |
-| `RUPEESCAN_MAX_IMAGE_BYTES` | REST/WebSocket image payload limit | `10485760` (10 MB) |
-| `RUPEESCAN_MAX_IMAGE_PIXELS` | Maximum decoded image pixels | `16000000` (16 MP) |
-| `RUPEESCAN_ENABLE_EXPERIMENTAL_AUTHENTICITY` | Opt in to experimental authenticity inference | `false` |
-| `RUPEESCAN_DENOMINATION_DATASET` | Real denomination training dataset | `datasets/denomination` |
-| `RUPEESCAN_AUTHENTICITY_DATASET` | Independent real/counterfeit research dataset | `datasets/authenticity` |
+| `CURRENSIGHT_MODEL_DIR` | Directory containing model weights (fallbacks: `DRISHTISCAN_*`, `RUPEESCAN_*`) | `backend/models` |
+| `CURRENSIGHT_FRONTEND_DIR` | Static frontend directory (fallback: `RUPEESCAN_FRONTEND_DIR`) | `frontend` |
+| `CURRENSIGHT_MAX_IMAGE_BYTES` | REST/WebSocket image payload limit | `10485760` (10 MB) |
+| `CURRENSIGHT_MAX_IMAGE_PIXELS` | Maximum decoded image pixels | `16000000` (16 MP) |
+| `CURRENSIGHT_ENABLE_EXPERIMENTAL_AUTHENTICITY` | Opt in to experimental authenticity inference | `false` |
+| `CURRENSIGHT_DENOMINATION_DATASET` | Real denomination training dataset | `datasets/denomination` |
+| `CURRENSIGHT_AUTHENTICITY_DATASET` | Independent real/counterfeit research dataset | `datasets/authenticity` |
 
 ---
 
@@ -364,14 +365,14 @@ python scripts/benchmark_inference.py --iterations 30
 
 ## 🐳 Docker Deployment
 
-RupeeScan includes a secure, non-root multi-stage Docker configuration:
+CurrenSight AI includes a secure, non-root multi-stage Docker configuration:
 
 ```bash
 # Build Docker image
-docker build -t rupeescan:latest .
+docker build -t currensight:latest .
 
 # Run container on port 8000
-docker run --rm -p 8000:8000 rupeescan:latest
+docker run --rm -p 8000:8000 currensight:latest
 ```
 
 Access the application at `http://127.0.0.1:8000`.
@@ -403,4 +404,4 @@ python training/train_pytorch.py --epochs 20 --batch-size 32 --patience 4
 
 ## 📄 License & Attribution
 
-This project is open-source under the MIT License. Developed as a **Deep Learning & Computer Vision** project by **[Yash Sonawane](https://github.com/yash12991)**, **[Bhavesh K. Sinha](https://github.com/BhaveshKSinha)**, and **[Chetan](https://github.com/Chetan0233)**. If you use RupeeScan in your research, coursework, or project, please star the repository! ⭐
+This project is open-source under the MIT License. Developed as a **Deep Learning & Computer Vision** project by **[Yash Sonawane](https://github.com/yash12991)**, **[Bhavesh K. Sinha](https://github.com/BhaveshKSinha)**, **[Chetan](https://github.com/Chetan0233)**, and **[Rounak Ukey](https://github.com/Rounak-U)**. If you use CurrenSight AI in your research, coursework, or project, please star the repository! ⭐
